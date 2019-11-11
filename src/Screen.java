@@ -95,7 +95,7 @@ public class Screen extends JPanel implements Runnable {
             for (int i=0; i<22; i++) {
                 for (int j=0; j<12; j++) {
                     if (towerMap[i][j] != null) {
-                        towerAttack(i, j);
+                        if(wave.waveStart) towerAttack(i, j);
                         if (towerMap[i][j].target != null) { // tower attack
                             graphics.setColor(Color.red);
                             graphics.drawLine(i*50+25, j*50+25, towerMap[i][j].target.getPosX()+25, towerMap[i][j].target.getPosY()+25);
@@ -189,7 +189,7 @@ public class Screen extends JPanel implements Runnable {
         this.player = new Player();
         AbstractTower normalTower = new NormalTower(10, 10, 3, 3, 5, 1D, 1D, "res/tower/tower1.png");
         AbstractTower machineGunTower = new MachineGunTower(15, 100, 2, 2, 10, 1D, 1D, "res/tower/tower3.png");
-        AbstractTower sniperTower = new SniperTower(20, 1, 4, 4, 15, 1D, 1D, "res/tower/tower4.png");
+        AbstractTower sniperTower = new SniperTower(20, 1, 4, 10, 15, 1D, 1D, "res/tower/tower4.png");
         towerList[0] = normalTower;
         towerList[1] = machineGunTower;
         towerList[2] = sniperTower;
@@ -339,26 +339,28 @@ public class Screen extends JPanel implements Runnable {
                 } else if (e.getYOnScreen() >= 320 && e.getYOnScreen() <= 370) {
                     // update tower
                     if (e.getXOnScreen() >= 1180 && e.getXOnScreen() <= 1320) {
-                        towerMap[towerChoosedX][towerChoosedY].updateTower();
-                        if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[0])) {
-                            System.out.println("number update: "+towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
-                            player.setMoney(player.getMoney()-50); // money for update
-                            if(towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1){ // update 1st
-                                towerMap[towerChoosedX][towerChoosedY] = new NormalTower(10, 10, 3, 6, 15, 1D, 1D, "res/tower/tower2.png");
+                        if (player.getMoney() >= 50) {
+                            towerMap[towerChoosedX][towerChoosedY].updateTower();
+                            if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[0])) {
+                                System.out.println("number update: " + towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
+                                player.setMoney(player.getMoney() - 50); // money for update
+                                if (towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1) { // update 1st
+                                    towerMap[towerChoosedX][towerChoosedY] = new NormalTower(10, 10, 3, 6, 15, 1D, 1D, "res/tower/tower2.png");
+                                }
                             }
-                        }
-                        if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[1])) {
-                            System.out.println("number update: "+towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
-                            player.setMoney(player.getMoney()-50); // money for update
-                            if(towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1){ // update 1st
-                                towerMap[towerChoosedX][towerChoosedY] = new NormalTower(10, 10, 3, 6, 15, 1D, 1D, "res/tower/tower2.png");
+                            if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[1])) {
+                                System.out.println("number update: " + towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
+                                player.setMoney(player.getMoney() - 50); // money for update
+                                if (towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1) { // update 1st
+                                    towerMap[towerChoosedX][towerChoosedY] = new MachineGunTower(15, 100, 2, 4, 15, 1D, 1D, "res/tower/tower2.png");
+                                }
                             }
-                        }
-                        if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[2])) {
-                            System.out.println("number update: "+towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
-                            player.setMoney(player.getMoney()-50); // money for update
-                            if(towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1){ //update 1st
-                                towerMap[towerChoosedX][towerChoosedY] = new NormalTower(10, 10, 3, 6, 15, 1D, 1D, "res/tower/tower2.png");
+                            if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[2])) {
+                                System.out.println("number update: " + towerMap[towerChoosedX][towerChoosedY].getNumberUpdate());
+                                player.setMoney(player.getMoney() - 50); // money for update
+                                if (towerMap[towerChoosedX][towerChoosedY].getNumberUpdate() == 1) { //update 1st
+                                    towerMap[towerChoosedX][towerChoosedY] = new SniperTower(20, 1, 6, 10, 15, 1D, 1D, "res/tower/tower2.png");
+                                }
                             }
                         }
                     }
