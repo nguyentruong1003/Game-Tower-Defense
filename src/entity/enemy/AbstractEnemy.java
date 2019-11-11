@@ -13,7 +13,6 @@ public abstract class AbstractEnemy implements Cloneable{
     protected int velX;
     protected int velY;
     protected int lastTurn;
-    protected boolean attack;
 
     public AbstractEnemy(int health, int speed, int armor, int reward, int x, int y) {
         this.health = health;
@@ -22,7 +21,6 @@ public abstract class AbstractEnemy implements Cloneable{
         this.reward = reward;
         this.posX = x;
         this.posY = y;
-        this.attack = false;
     }
 
     public abstract BufferedImage getTexture();
@@ -61,10 +59,6 @@ public abstract class AbstractEnemy implements Cloneable{
 
     public void setPosY(int posY) {
         this.posY = posY;
-    }
-
-    public boolean isAttack() {
-        return attack;
     }
 
     public void move(int [][]enemyMap) {

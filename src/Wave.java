@@ -51,7 +51,7 @@ public class Wave {
                 } else {
                     delayTime = 0;
                     System.out.println(numberCurrentEnemy);
-                    listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(10, 1, 2, 5, 0, 50).clone());
+                    listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(10, 10, 2, 5, 0, 50).clone());
 
                     numberCurrentEnemy++;
                 }

@@ -26,9 +26,4 @@ public class MachineGunTower extends AbstractTower{
     public BufferedImage getTexture() {
         return image;
     }
-
-    @Override
-    public void updateTower() {
-        numberUpdate++;
-    }
 }

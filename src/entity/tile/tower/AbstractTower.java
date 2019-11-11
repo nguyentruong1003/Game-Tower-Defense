@@ -19,7 +19,6 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
     protected int range;
     protected int damage;
     protected int sell;
-    protected int numberUpdate = 0;
     public double attackTime;
     public double attackDelay;
     public double maxAttackTime;
@@ -42,8 +41,6 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
 
     public abstract BufferedImage getTexture();
 
-    public abstract void updateTower();
-
     public int getCost() {
         return cost;
     }
@@ -62,10 +59,6 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
 
     public int getSell() {
         return sell;
-    }
-
-    public int getNumberUpdate() {
-        return numberUpdate;
     }
 
     @Override
