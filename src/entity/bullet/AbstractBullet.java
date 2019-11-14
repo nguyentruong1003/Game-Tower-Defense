@@ -4,6 +4,7 @@ import entity.enemy.AbstractEnemy;
 import entity.tile.tower.AbstractTower;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,16 +55,16 @@ public abstract class AbstractBullet {
         this.velY = velY;
     }
 
-    public abstract void paint(Graphics graphics);
+    public abstract BufferedImage getTexture();
 
     public void fly(int x, int y) {
         int towerPosX = x;
         int towerPosY = y;
-        velX = towerPosX - enemy.getPosX()/50;
-        velY = towerPosY - enemy.getPosY()/50;
+        velX = towerPosX - (enemy.getPosX()+25)/50;
+        velY = towerPosY - (enemy.getPosY()+25)/50;
 
-        posX -= velX*2;
-        posY -= velY*2;
+        posX -= velX*3;
+        posY -= velY*3;
     }
 
 }

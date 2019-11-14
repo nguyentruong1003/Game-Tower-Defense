@@ -1,10 +1,9 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Main extends JFrame {
 
-    private Screen screen = new Screen();
+    private Painter painter = new Painter();
 
     public Main() {
         setTitle("Tower Defense");
@@ -16,22 +15,24 @@ public class Main extends JFrame {
         setResizable(true);
         //setLocationRelativeTo(null);
 
-        add(screen);
+        add(painter);
 
         // Key Event
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    if(screen.getScene() == 0){
-                        screen.startGame();
+                if(e.getKeyCode() == KeyEvent.VK_P) {
+                    if (Painter.scene == 1) {
+                        Painter.audioPause++;
+                        if(Painter.audioPause % 2 == 1) Painter.audio.pause();
+                        if (Painter.audioPause % 2 == 0) Painter.audio.play();
                     }
                 }
                 if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    screen.stopGame();
+                    GameController.stopGame();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    if (!screen.getWave().waveStart) screen.getWave().nextWave();
+                    if (!Painter.wave.waveStart) Painter.wave.nextWave();
                 }
             }
         });
@@ -40,22 +41,37 @@ public class Main extends JFrame {
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                screen.mouseMoved(e);
+                Painter.handle.mouseMoved(e);
             }
             @Override
             public void mouseMoved(MouseEvent e) {
-                screen.mouseMoved(e);
+                Painter.handle.mouseMoved(e);
             }
         });
 
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                screen.mouseDowned(e);
+                Painter.handle.mouseDowned(e);
             }
             @Override
             public void mouseClicked(MouseEvent e) {
-               //if(screen.getScene() == 1) screen.clickTowerOnMap(e);
+                if(e.getXOnScreen() >= 540 && e.getXOnScreen() <= 900 && Painter.scene == 0) {
+                    // main menu
+                    if (e.getYOnScreen() >= 455 && e.getYOnScreen() <= 542) {
+                        Painter.selectLevel = 1; // easy level
+                        System.out.println(Painter.selectLevel);
+                        GameController.startGame();
+                    }
+                    if (e.getYOnScreen() >= 574 && e.getYOnScreen() <= 654) {
+                        Painter.selectLevel = 2; // medium level
+                        GameController.startGame();
+                    }
+                    if (e.getYOnScreen() >= 681 && e.getYOnScreen() <= 762) {
+                        Painter.selectLevel = 3; // hard level
+                        GameController.startGame();
+                    }
+                }
             }
             @Override
             public void mouseReleased(MouseEvent e) {

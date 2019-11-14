@@ -1,0 +1,236 @@
+Title:
+    Bow & Arrow Shot
+
+Author:
+    dorkster
+
+URL:
+    https://opengameart.org/content/bow-arrow-shot
+
+License(s):
+    * CC-BY-SA 3.0 ( http://creativecommons.org/licenses/by-sa/3.0/legalcode )
+
+File(s):
+    * shoot.ogg
+
+----------------------------------------
+
+Title:
+    Punches, hits, swords and squishes.
+
+Author:
+    tarfmagougou
+
+URL:
+    https://opengameart.org/content/punches-hits-swords-and-squishes
+
+License(s):
+    * CC-BY-SA 3.0 ( http://creativecommons.org/licenses/by-sa/3.0/legalcode )
+
+Copyright/Attribution Notice:
+    Philippe Groarke
+
+File(s):
+    * Socapex - Evol Online SFX - Punches and hits.zip
+
+----------------------------------------
+
+Title:
+    Dark Long Hits
+
+Author:
+    marcelofg55
+
+URL:
+    https://opengameart.org/content/dark-long-hits
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+Copyright/Attribution Notice:
+    If you use the track credit me as Marcelo Fernandez (with a link to my site if possible).
+
+
+File(s):
+    * Dark Long Hits.mp3
+
+----------------------------------------
+
+Title:
+    Fireball
+
+Author:
+    Julien Matthey
+
+URL:
+    https://opengameart.org/content/fireball-1
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * 105016__julien-matthey__jm-fx-fireball-01.wav
+
+----------------------------------------
+
+Title:
+    Weapon Blow
+
+Author:
+    spookymodem
+
+URL:
+    https://opengameart.org/content/weapon-blow
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+File(s):
+    * Weapon Blow.wav
+
+----------------------------------------
+
+Title:
+    Magic Smite
+
+Author:
+    spookymodem
+
+URL:
+    https://opengameart.org/content/magic-smite
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+File(s):
+    * Magic Smite.wav
+
+----------------------------------------
+
+Title:
+    Crossbow Shot
+
+Author:
+    spookymodem
+
+URL:
+    https://opengameart.org/content/crossbow-shot
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+File(s):
+    * Crossbow Shot.wav
+
+----------------------------------------
+
+Title:
+    Swishes Sound Pack
+
+Author:
+    artisticdude
+
+URL:
+    https://opengameart.org/content/swishes-sound-pack
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * swishes.zip
+
+----------------------------------------
+
+Title:
+    Wood Wobbling & Rattling
+
+Author:
+    qubodup
+
+URL:
+    https://opengameart.org/content/wood-wobbling-rattling
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * qubodup-wobble.7z
+
+----------------------------------------
+
+Title:
+    Swish - bamboo stick weapon swhoshes
+
+Author:
+    Iwan Gabovitch
+
+URL:
+    https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * swoshes.7z
+
+----------------------------------------
+
+Title:
+    37 hits/punches
+
+Author:
+    Independent.nu
+
+URL:
+    https://opengameart.org/content/37-hitspunches
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * independent_nu_ljudbank-hits_and_punches.7z
+
+----------------------------------------
+
+Title:
+    Unused music
+
+Author:
+    Alexandr Zhelanov
+
+URL:
+    https://opengameart.org/content/unused-music
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+Copyright/Attribution Notice:
+    Alexandr Zhelanov, https://soundcloud.com/alexandr-zhelanov
+
+File(s):
+    * Brirfing_theme.mp3
+    * improvisation 1.mp3
+    * Track_1.mp3
+    * Track_1.ogg
+    * demo_track_1.mp3
+    * demo_track_2.mp3
+
+----------------------------------------
+
+Title:
+    Determination
+
+Author:
+    artisticdude
+
+URL:
+    https://opengameart.org/content/determination
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * determination.mp3
+
+----------------------------------------
+

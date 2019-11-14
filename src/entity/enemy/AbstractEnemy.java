@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 public abstract class AbstractEnemy implements Cloneable{
     protected int health;
     protected int speed;
-    protected int armor;
     protected int reward;
     protected int posX;
     protected int posY;
@@ -14,10 +13,9 @@ public abstract class AbstractEnemy implements Cloneable{
     protected int velY;
     protected int lastTurn;
 
-    public AbstractEnemy(int health, int speed, int armor, int reward, int x, int y) {
+    public AbstractEnemy(int health, int speed, int reward, int x, int y) {
         this.health = health;
         this.speed = speed;
-        this.armor = armor;
         this.reward = reward;
         this.posX = x;
         this.posY = y;
@@ -35,10 +33,6 @@ public abstract class AbstractEnemy implements Cloneable{
 
     public int getSpeed() {
         return speed;
-    }
-
-    public int getArmor() {
-        return armor;
     }
 
     public int getReward() {

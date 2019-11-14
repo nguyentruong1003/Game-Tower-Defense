@@ -1,10 +1,12 @@
+package game;
+
 public class Player {
     private int health;
     private int money;
 
     public Player() {
         this.health = 100;
-        this.money = 200;
+        this.money = 100;
     }
 
     public int getHealth() {

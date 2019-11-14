@@ -3,10 +3,12 @@ package entity.tile.tower;
 import entity.bullet.AbstractBullet;
 import entity.enemy.AbstractEnemy;
 import entity.tile.AbstractTile;
+import jaco.mp3.player.MP3Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,11 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
     public double maxAttackTime;
     public double maxAttackDelay;
     public AbstractEnemy target;
-    public List<AbstractBullet> listBullet = new ArrayList<>();
-    public ArrayDeque<Integer> bulletArrayDeque = new ArrayDeque<>();
+    public AbstractBullet bullet;
+    protected boolean isUpdated;
+    protected MP3Player shootSound;
 
-    public AbstractTower(int cost, double attackSpeed, int range, int damage, int sell, double maxAttackTime, double maxAttackDelay) {
+    public AbstractTower(int cost, double attackSpeed, int range, int damage, int sell, double maxAttackTime, double maxAttackDelay, boolean isUpdated) {
         this.cost = cost;
         this.attackSpeed = attackSpeed;
         this.range = range;
@@ -37,6 +40,7 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
         this.maxAttackDelay = maxAttackDelay;
         this.attackTime = 0;
         this.attackDelay = 0;
+        this.isUpdated = isUpdated;
     }
 
     public abstract BufferedImage getTexture();
@@ -59,6 +63,18 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
 
     public int getSell() {
         return sell;
+    }
+
+    public void setUpdated(boolean updated) {
+        isUpdated = updated;
+    }
+
+    public boolean isUpdated() {
+        return isUpdated;
+    }
+
+    public MP3Player getShootSound() {
+        return shootSound;
     }
 
     @Override

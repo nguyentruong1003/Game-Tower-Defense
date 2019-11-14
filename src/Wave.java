@@ -1,8 +1,6 @@
-import entity.enemy.AbstractEnemy;
-import entity.enemy.NormalEnemy;
+import entity.enemy.*;
 
 public class Wave {
-    private Screen screen;
     private ListEnemy listEnemy;
 
     int waveNumber;
@@ -14,8 +12,7 @@ public class Wave {
     int numberEnemyPerWave ;
     boolean fullEnemySpawn;
 
-    public Wave(Screen screen) {
-        this.screen = screen;
+    public Wave() {
         this.waveStart = false;
     }
 
@@ -33,10 +30,10 @@ public class Wave {
 
     public void nextWave() {
         waveNumber++;
-        listEnemy = new ListEnemy(screen);
+        listEnemy = new ListEnemy();
         delayTime = 0;
-        nextEnemyTime = 1000 - 150*waveNumber;
-        numberCurrentEnemy = 0;
+        nextEnemyTime = 1000 - 200*waveNumber;
+        numberCurrentEnemy = 1;
         numberEnemyPerWave = waveNumber*10;
         fullEnemySpawn = false;
         waveStart = true;
@@ -45,13 +42,22 @@ public class Wave {
     public void addEnemy() {
 
         if (!fullEnemySpawn) {
-            if (numberCurrentEnemy < numberEnemyPerWave) {
+            if (numberCurrentEnemy <= numberEnemyPerWave) {
                 if (delayTime < nextEnemyTime) {
                     delayTime++;
                 } else {
                     delayTime = 0;
                     System.out.println(numberCurrentEnemy);
-                    listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(10, 10, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 1) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 2) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 3) listEnemy.getEnemyList().add((AbstractEnemy) new SmallerEnemy(15, 4, 15, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 4) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 5) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 6) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 7) listEnemy.getEnemyList().add((AbstractEnemy) new TankerEnemy(150, 1, 30, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 8) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 9) listEnemy.getEnemyList().add((AbstractEnemy) new NormalEnemy(20, 2, 5, 0, 50).clone());
+                    if (numberCurrentEnemy % 10 == 0) listEnemy.getEnemyList().add((AbstractEnemy) new BossEnemy(100, 2, 50, 0, 50).clone());
 
                     numberCurrentEnemy++;
                 }

@@ -11,11 +11,8 @@ public class ListEnemy extends JPanel {
     private int enemyMap[][];
     private ArrayDeque<Integer> array = new ArrayDeque<>();
 
-    Screen screen;
-
-    public ListEnemy(Screen screen) {
-        this.screen = screen;
-        enemyMap = screen.getMap();
+    public ListEnemy() {
+        enemyMap = Painter.map;
 
     }
 
@@ -28,7 +25,8 @@ public class ListEnemy extends JPanel {
         for (int i=0; i < enemyList.size(); i++) {
             if (!enemyDeath(i)) {
                 AbstractEnemy enemy = enemyList.get(i);
-                graphics.drawImage(enemy.getTexture(), enemy.getPosX(), enemy.getPosY(), 50, 50, null);
+                graphics.drawString("health:"+enemy.getHealth(), enemy.getPosX(), enemy.getPosY());
+                graphics.drawImage(enemy.getTexture(), enemy.getPosX(), enemy.getPosY(), null);
             } else {
                 array.push(i);
             }
@@ -52,12 +50,12 @@ public class ListEnemy extends JPanel {
         int x = enemy.getPosX()/50;
         int y = enemy.getPosY()/50;
         if (enemyMap[x][y] == 10) {
-            screen.getPlayer().setHealth(screen.getPlayer().getHealth() - enemy.getHealth());
+            Painter.player.setHealth(Painter.player.getHealth() - enemy.getHealth());
             System.out.println(i + "   move to target");
             return true;
         }
         else if (enemy.getHealth() <= 0) {
-            screen.getPlayer().setMoney(screen.getPlayer().getMoney() + enemy.getReward());
+            Painter.player.setMoney(Painter.player.getMoney() + enemy.getReward());
             System.out.println(i + " dead");
             return true;
         }
