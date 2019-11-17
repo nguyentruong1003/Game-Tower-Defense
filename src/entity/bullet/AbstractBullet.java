@@ -60,11 +60,11 @@ public abstract class AbstractBullet {
     public void fly(int x, int y) {
         int towerPosX = x;
         int towerPosY = y;
-        velX = towerPosX - (enemy.getPosX()+25)/50;
-        velY = towerPosY - (enemy.getPosY()+25)/50;
+        velX = (enemy.getPosX()+25)/50 - towerPosX;
+        velY = (enemy.getPosY()+25)/50 - towerPosY;
 
-        posX -= velX*3;
-        posY -= velY*3;
+        posX += velX*3;
+        posY += velY*3;
     }
 
 }

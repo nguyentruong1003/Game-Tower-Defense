@@ -19,9 +19,9 @@ public class GameController {
         Painter.audioPause = 0;
         Painter.scene = 1;
         Painter.player = new Player();
-        AbstractTower normalTower = new NormalTower(10, 10, 3, 3, 5, 1D, 1D, false, "res/tower/tower1.png");
-        AbstractTower machineGunTower = new MachineGunTower(15, 50, 2, 2, 10, 1D, 1D, false, "res/tower/tower3.png");
-        AbstractTower sniperTower = new SniperTower(20, 1, 4, 10, 15, 1D, 1D, false, "res/tower/tower4.png");
+        AbstractTower normalTower = new NormalTower(15, 5, 3, 3, 5, 1, 1, false, "res/tower/tower8.png");
+        AbstractTower machineGunTower = new MachineGunTower(50, 10, 2, 2, 35, 1, 1, false, "res/tower/tower10.png");
+        AbstractTower sniperTower = new SniperTower(45, 1, 4, 10, 30, 1, 1, false, "res/tower/tower9.png");
         Painter.towerList[0] = normalTower;
         Painter.towerList[1] = machineGunTower;
         Painter.towerList[2] = sniperTower;

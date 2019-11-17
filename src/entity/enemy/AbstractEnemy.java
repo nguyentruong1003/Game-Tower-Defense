@@ -55,6 +55,14 @@ public abstract class AbstractEnemy implements Cloneable{
         this.posY = posY;
     }
 
+    public int getVelX() {
+        return velX;
+    }
+
+    public int getVelY() {
+        return velY;
+    }
+
     public void move(int [][]enemyMap) {
         int x = posX/50;
         int y = posY/50;

@@ -92,19 +92,19 @@ public class Handle {
                 } else if (e.getYOnScreen() >= 320 && e.getYOnScreen() <= 370) {
                     // update tower
                     if (e.getXOnScreen() >= 1180 && e.getXOnScreen() <= 1320) {
-                        if (Painter.player.getMoney() >= 50 && !Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].isUpdated()) {
+                        if (Painter.player.getMoney() >= 75 && !Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].isUpdated()) {
                             Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].setUpdated(true);
                             if (Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].equals(Painter.towerList[0])) {
-                                Painter.player.setMoney(Painter.player.getMoney() - 50); // money for update
-                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new NormalTower(10, 10, 3, 6, 20, 1D, 1D, true, "res/tower/tower2.png");
+                                Painter.player.setMoney(Painter.player.getMoney() - 75); // money for update
+                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new NormalTower(15, 5, 3, 6, 5, 1, 1, true, "res/tower/tower5.png");
                             }
                             if (Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].equals(Painter.towerList[1])) {
-                                Painter.player.setMoney(Painter.player.getMoney() - 50); // money for update
-                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new MachineGunTower(15, 100, 2, 4, 25, 1D, 1D, true, "res/tower/tower2.png");
+                                Painter.player.setMoney(Painter.player.getMoney() - 75); // money for update
+                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new MachineGunTower(50, 10, 2, 4, 35, 1, 1, true, "res/tower/tower6.png");
                             }
                             if (Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY].equals(Painter.towerList[2])) {
-                                Painter.player.setMoney(Painter.player.getMoney() - 50); // money for update
-                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new SniperTower(20, 1, 6, 10, 30, 1D, 1D, true, "res/tower/tower2.png");
+                                Painter.player.setMoney(Painter.player.getMoney() - 75); // money for update
+                                Painter.towerMap[Painter.towerChoosedX][Painter.towerChoosedY] = new SniperTower(45, 1, 6, 10, 30, 1, 1, true, "res/tower/tower7.png");
                             }
                         }
                     }
