@@ -74,7 +74,13 @@ public class Painter extends JPanel implements Runnable {
 
             //tower list
             for (int i=0; i<3; i++) {
-                graphics.drawImage(towerList[i].getTexture(), 50*23, 100*i +10, null);
+                graphics.drawRect(50*23-10, 100*i+10, 55, 50);
+                if (towerList[i].getCost() > player.getMoney()) {
+                    graphics.setColor(new Color(255, 0, 0, 125));
+                    graphics.fillRect(50*23-10, 100*i+10, 55, 50);
+                }
+                graphics.setColor(Color.black);
+                graphics.drawImage(towerList[i].getTexture(), 50*23-10, 100*i +10, null);
                 font = new Font("Serif", Font.ITALIC, 20);
                 graphics.setFont(font);
                 graphics.drawString("Cost:"+towerList[i].getCost()+"   Attack Speed:"+towerList[i].getAttackSpeed()+"   Range:"+towerList[i].getRange(),50*25-40, i*100+25);
