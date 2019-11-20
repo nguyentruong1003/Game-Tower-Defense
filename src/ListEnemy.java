@@ -25,8 +25,7 @@ public class ListEnemy extends JPanel {
         for (int i=0; i < enemyList.size(); i++) {
             if (!enemyDeath(i)) {
                 AbstractEnemy enemy = enemyList.get(i);
-                graphics.drawString("health:"+enemy.getHealth(), enemy.getPosX(), enemy.getPosY());
-                graphics.drawImage(enemy.getTexture(), enemy.getPosX(), enemy.getPosY(), null);
+                graphics.drawImage(enemy.getTexture(), enemy.getPosX(), enemy.getPosY(), 50, 50, null);
             } else {
                 array.push(i);
             }

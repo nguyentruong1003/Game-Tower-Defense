@@ -3,18 +3,19 @@ import java.awt.event.*;
 
 public class Main extends JFrame {
 
-    private Painter painter = new Painter();
+    private Painter painter;
 
     public Main() {
         setTitle("Tower Defense");
         //setSize(1000, 1000);
         setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
-        setVisible(true);
+        //setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         //setLocationRelativeTo(null);
 
+        painter = new Painter();
         add(painter);
 
         // Key Event
@@ -100,7 +101,13 @@ public class Main extends JFrame {
         });
     }
 
+    public void init() {
+        painter.init();
+    }
+
     public static void main(String[] args) {
         Main main = new Main();
+        main.setVisible(true);
+        main.init();
     }
 }

@@ -12,6 +12,9 @@ public abstract class AbstractEnemy implements Cloneable{
     protected int velX;
     protected int velY;
     protected int lastTurn;
+    protected int direction;
+    protected BufferedImage image;
+    protected BufferedImage res;
 
     public AbstractEnemy(int health, int speed, int reward, int x, int y) {
         this.health = health;
@@ -76,8 +79,8 @@ public abstract class AbstractEnemy implements Cloneable{
         }
 
         switch (enemyMap[x][y]){
-            case 1: velX = getSpeed(); velY = 0; break;
-            case 3: velX = -getSpeed(); velY = 0; break;
+            case 1: velX = getSpeed(); velY = 0; direction = 1; break;
+            case 3: velX = -getSpeed(); velY = 0; direction = 2; break;
             case 2: velY = getSpeed(); velX = 0; break;
             case 4: velY = -getSpeed(); velX = 0; break;
         }

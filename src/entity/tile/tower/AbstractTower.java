@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public abstract class AbstractTower extends AbstractTile implements Cloneable {
+public abstract class AbstractTower implements Cloneable {
 
     protected int cost;
     protected double attackSpeed;
@@ -29,6 +29,9 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
     public AbstractBullet bullet;
     protected boolean isUpdated;
     protected MP3Player shootSound;
+    protected BufferedImage image1;
+    protected BufferedImage image2;
+    protected BufferedImage image3;
 
     public AbstractTower(int cost, double attackSpeed, int range, int damage, int sell, double maxAttackTime, double maxAttackDelay, boolean isUpdated) {
         this.cost = cost;
@@ -43,7 +46,11 @@ public abstract class AbstractTower extends AbstractTile implements Cloneable {
         this.isUpdated = isUpdated;
     }
 
-    public abstract BufferedImage getTexture();
+    public abstract BufferedImage getImage1();
+
+    public abstract BufferedImage getImage2();
+
+    public abstract BufferedImage getImage3();
 
     public int getCost() {
         return cost;

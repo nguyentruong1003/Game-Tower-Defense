@@ -9,14 +9,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class NormalTower extends AbstractTower{
-    //"res/tower/tower1.png"
-    private StringBuffer string = new StringBuffer();
-    BufferedImage image;
-    public NormalTower(int cost, double attackSpeed, int range, int damage, int sell, double maxAttackTime, double maxAttackDelay, boolean isUpdated, String str) {
+
+    public NormalTower(int cost, double attackSpeed, int range, int damage, int sell, double maxAttackTime, double maxAttackDelay, boolean isUpdated) {
         super(cost, attackSpeed, range, damage, sell, maxAttackTime, maxAttackDelay, isUpdated);
-        string.append(str);
         try {
-            image = ImageIO.read(new File(String.valueOf(this.string)));
+            image1 = ImageIO.read(new File("res/tower/normal.png"));
+            image2= ImageIO.read(new File("res/tower/normal2.png"));
+            image3= ImageIO.read(new File("res/tower/tower1.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -24,7 +23,28 @@ public class NormalTower extends AbstractTower{
     }
 
     @Override
-    public BufferedImage getTexture() {
-        return image;
+    public BufferedImage getImage1() {
+        return image1;
     }
+
+    @Override
+    public BufferedImage getImage2() {
+
+        if (!isUpdated) return image2;
+        else {
+            try {
+                image2 = ImageIO.read(new File("res/tower/tower8.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return image2;
+        }
+
+    }
+
+    @Override
+    public BufferedImage getImage3() {
+        return image3;
+    }
+
 }

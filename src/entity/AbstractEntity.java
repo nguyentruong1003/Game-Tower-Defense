@@ -1,20 +1,19 @@
 package entity;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public abstract class AbstractEntity implements GameEntity{
-    private double posX;
-    private double posY;
-    private double width;
-    private double height;
-    private String string;
+    protected double posX;
+    protected double posY;
+    protected double width;
+    protected double height;
 
-    protected AbstractEntity(double posX, double posY, double width, double height, String string) {
+    protected AbstractEntity(double posX, double posY, double width, double height) {
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
-        this.string = string;
     }
 
     public AbstractEntity() {}
@@ -55,5 +54,5 @@ public abstract class AbstractEntity implements GameEntity{
         this.height = height;
     }
 
-    public abstract void paint(Graphics graphics);
+    public abstract void draw(Graphics graphics);
 }

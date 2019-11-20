@@ -40,15 +40,13 @@ public class Painter extends JPanel implements Runnable {
     static int audioPause;
 
     public Painter() {
-        thread = new Thread(this);
-        thread.start();
         handle = new Handle();
         gameController = new GameController();
         scene = 0;
     }
 
     @Override
-    public void paintComponent(Graphics graphics) {
+    public void paint(Graphics graphics) {
         // clear screen
         graphics.clearRect(0, 0, getWidth(), getHeight());
         // screen start
@@ -60,7 +58,7 @@ public class Painter extends JPanel implements Runnable {
             graphics.drawImage(background, 0, 0, 1920, 1080, null);
             //grid
             for (int i=0; i<gameField.getWidth()*gameField.getHeight(); i++) {
-                gameField.getEntities().get(i).paint(graphics);
+                gameField.getEntities().get(i).draw(graphics);
             }
             // health and money
             graphics.setColor(Color.black);
@@ -74,13 +72,13 @@ public class Painter extends JPanel implements Runnable {
 
             //tower list
             for (int i=0; i<3; i++) {
-                graphics.drawRect(50*23-10, 100*i+10, 55, 50);
+                //graphics.drawRect(50*23-10, 100*i+10, 55, 50);
                 if (towerList[i].getCost() > player.getMoney()) {
                     graphics.setColor(new Color(255, 0, 0, 125));
                     graphics.fillRect(50*23-10, 100*i+10, 55, 50);
                 }
                 graphics.setColor(Color.black);
-                graphics.drawImage(towerList[i].getTexture(), 50*23-10, 100*i +10, null);
+                graphics.drawImage(towerList[i].getImage3(), 50*23-10, 100*i +10, null);
                 font = new Font("Serif", Font.ITALIC, 20);
                 graphics.setFont(font);
                 graphics.drawString("Cost:"+towerList[i].getCost()+"   Attack Speed:"+towerList[i].getAttackSpeed()+"   Range:"+towerList[i].getRange(),50*25-40, i*100+25);
@@ -101,14 +99,20 @@ public class Painter extends JPanel implements Runnable {
                             }
                         }
 
-                        graphics.drawImage(towerMap[i][j].getTexture(), i*50, j*50, null);
+                        graphics.drawImage(towerMap[i][j].getImage1(), i*50, j*50, null);
+                        if (towerMap[i][j].equals(towerList[1])) graphics.drawImage(towerMap[i][j].getImage2(), i*50-8, j*50+3, null);
+                        else graphics.drawImage(towerMap[i][j].getImage2(), i*50+7, j*50-10, null);
+
                         graphics.setColor(Color.GRAY);
                         if (towerMap[towerChoosedX][towerChoosedY] != null) { // tower is choosed
                             graphics.drawOval(towerChoosedX*50+25-towerMap[towerChoosedX][towerChoosedY].getRange()*50,towerChoosedY*50+25-towerMap[towerChoosedX][towerChoosedY].getRange()*50,towerMap[towerChoosedX][towerChoosedY].getRange()*2*50,towerMap[towerChoosedX][towerChoosedY].getRange()*2*50);
                             graphics.setColor(new Color(64, 64, 64, 40));
                             graphics.fillOval(towerChoosedX*50+25-towerMap[towerChoosedX][towerChoosedY].getRange()*50,towerChoosedY*50+25-towerMap[towerChoosedX][towerChoosedY].getRange()*50,towerMap[towerChoosedX][towerChoosedY].getRange()*2*50,towerMap[towerChoosedX][towerChoosedY].getRange()*2*50);
                             graphics.setColor(new Color(255, 255, 0, 50));
-                            graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getTexture(),towerChoosedX*50, towerChoosedY*50, null);
+                            graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage1(),towerChoosedX*50, towerChoosedY*50, null);
+
+                            if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[1])) graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage2(),towerChoosedX*50-8, towerChoosedY*50+3, null);
+                            else graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage2(),towerChoosedX*50+7, towerChoosedY*50-10, null);
                         }
                     }
                 }
@@ -118,7 +122,11 @@ public class Painter extends JPanel implements Runnable {
             if (isTowerOnMap) {
                 graphics.setFont(new Font("Serif", Font.BOLD, 20));
                 graphics.setColor(Color.black);
-                graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getTexture(), 1120, 320, null);
+
+                graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage1(), 1120, 320, null);
+                if (towerMap[towerChoosedX][towerChoosedY].equals(towerList[1])) graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage2(), 1120-8, 320+3, null);
+                else graphics.drawImage(towerMap[towerChoosedX][towerChoosedY].getImage2(), 1120+7, 320-10, null);
+
                 graphics.drawString("Damage: "+towerMap[towerChoosedX][towerChoosedY].getDamage(), 1120,400);
                 graphics.drawString("Attack Speed: "+towerMap[towerChoosedX][towerChoosedY].getAttackSpeed(), 1250, 400);
                 graphics.drawString("Range: "+towerMap[towerChoosedX][towerChoosedY].getRange(), 1420,400);
@@ -137,14 +145,24 @@ public class Painter extends JPanel implements Runnable {
                 graphics.setColor(Color.blue);
                 graphics.setFont(new Font("Serif", Font.BOLD, 20));
                 wave.getListEnemy().paint(graphics);
+                graphics.setFont(new Font("Serif", Font.BOLD, 10));
                 for (int i=0; i<wave.getListEnemy().getEnemyList().size(); i++) {
+                    AbstractEnemy enemy = wave.getListEnemy().getEnemyList().get(i);
                     wave.getListEnemy().enemyMove(i);
+                    graphics.setColor(Color.black);
+                    graphics.drawRect(enemy.getPosX(), enemy.getPosY()-8, 40, 6);
+                    graphics.setColor(Color.green);
+                    if (enemy.getHealth() < 40 ) graphics.fillRect(enemy.getPosX(), enemy.getPosY()-8, enemy.getHealth(), 6);
+                    if (enemy.getHealth() >= 40) graphics.fillRect(enemy.getPosX(), enemy.getPosY()-8, 40, 6);
+                    graphics.drawString(""+enemy.getHealth(), enemy.getPosX()+40, enemy.getPosY()-4);
                 }
             }
 
             //handler
             if (hand != 0 && towerList[hand-1] != null) {
-                graphics.drawImage(towerList[hand-1].getTexture(), this.handXPos-25, this.handYPos-25, null);
+                graphics.drawImage(towerList[hand-1].getImage1(), this.handXPos-25, this.handYPos-25, null);
+                if (towerList[hand-1].equals(towerList[1])) graphics.drawImage(towerList[hand-1].getImage2(), this.handXPos-25-8, this.handYPos-25+3, null);
+                else graphics.drawImage(towerList[hand-1].getImage2(), this.handXPos-25+7, this.handYPos-25-10, null);
             }
 
             //next wave
@@ -210,6 +228,10 @@ public class Painter extends JPanel implements Runnable {
         }
     }
 
-
+    public void init() {
+        thread = new Thread(this);
+        thread.start();
+        running = true;
+    }
 
 }

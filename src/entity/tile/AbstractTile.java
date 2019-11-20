@@ -10,21 +10,13 @@ import java.io.IOException;
 
 public abstract class AbstractTile extends AbstractEntity {
 
-    private BufferedImage image;
+    protected BufferedImage image;
 
-    protected AbstractTile(double posX, double posY, double width, double height, String string) {
-        super(posX, posY, width, height, string);
-        try {
-            image = ImageIO.read(new File(string));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    protected AbstractTile(double posX, double posY, double width, double height) {
+        super(posX, posY, width, height);
     }
 
-    protected AbstractTile() {
-    }
-
-   public void paint(Graphics graphics) {
-        graphics.drawImage(image, (int)getPosX(), (int)getPosY(), (int)getWidth(), (int)getHeight(), null);
-   }
+//   public void draw(Graphics graphics) {
+//        graphics.drawImage(image, (int)getPosX(), (int)getPosY(), (int)getWidth(), (int)getHeight(), null);
+//   }
 }

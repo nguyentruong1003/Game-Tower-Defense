@@ -3,7 +3,6 @@ package game;
 import entity.GameEntity;
 import entity.tile.Mountain;
 import entity.tile.Road;
-import entity.tile.Spawner;
 import entity.tile.Target;
 
 import java.io.FileInputStream;
@@ -54,8 +53,6 @@ public final class GameStage {
                         entities.add(new Mountain(x*50, y*50, 50, 50, "res/tile/GreyMoutain.png"));
                     } else if (value == 8) {
                         entities.add(new Mountain(x*50, y*50, 50, 50, "res/tile/GrassHole.png"));
-                    } else if (value == 9) {
-                        entities.add(new Spawner(x*50, y*50, 50, 50, ""));
                     } else if (value == 10){
                         entities.add(new Target(x*50, y*50, 50, 50, "res/tile/YellowRock.png"));
                     }

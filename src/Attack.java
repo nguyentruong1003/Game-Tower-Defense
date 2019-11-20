@@ -10,9 +10,9 @@ public class Attack {
                 AbstractEnemy currentEnemy = Painter.towerMap[x][y].enemiesAttacked(Painter.wave.getListEnemy().getEnemyList(), x, y);
 
                 if (currentEnemy != null) {
-                    if (Painter.towerMap[x][y].equals(Painter.towerList[0])) Painter.towerMap[x][y].bullet = new NormalBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50+25);
-                    if (Painter.towerMap[x][y].equals(Painter.towerList[1])) Painter.towerMap[x][y].bullet = new MachineGunBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50+25);
-                    if (Painter.towerMap[x][y].equals(Painter.towerList[2])) Painter.towerMap[x][y].bullet = new SniperBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50+25);
+                    if (Painter.towerMap[x][y].equals(Painter.towerList[0])) Painter.towerMap[x][y].bullet = new NormalBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50);
+                    if (Painter.towerMap[x][y].equals(Painter.towerList[1])) Painter.towerMap[x][y].bullet = new MachineGunBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50);
+                    if (Painter.towerMap[x][y].equals(Painter.towerList[2])) Painter.towerMap[x][y].bullet = new SniperBullet(Painter.towerMap[x][y], currentEnemy, x*50+25, y*50);
                     //towerMap[x][y].getShootSound().play();
                     currentEnemy.setHealth(currentEnemy.getHealth() - Painter.towerMap[x][y].getDamage());
                     Painter.towerMap[x][y].target = currentEnemy;

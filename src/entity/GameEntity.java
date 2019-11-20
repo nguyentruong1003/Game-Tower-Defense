@@ -11,5 +11,5 @@ public interface GameEntity {
 
     double getHeight();
 
-    void paint(Graphics graphics);
+    void draw(Graphics graphics);
 }

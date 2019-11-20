@@ -17,11 +17,10 @@ public class GameController {
         Painter.audio.play();
         Painter.audio.setRepeat(true);
         Painter.audioPause = 0;
-        Painter.scene = 1;
         Painter.player = new Player();
-        AbstractTower normalTower = new NormalTower(15, 5, 3, 3, 5, 1, 1, false, "res/tower/tower8.png");
-        AbstractTower machineGunTower = new MachineGunTower(50, 10, 2, 2, 35, 1, 1, false, "res/tower/tower10.png");
-        AbstractTower sniperTower = new SniperTower(45, 1, 4, 10, 30, 1, 1, false, "res/tower/tower9.png");
+        AbstractTower normalTower = new NormalTower(15, 5, 3, 3, 5, 1, 1, false);
+        AbstractTower machineGunTower = new MachineGunTower(50, 10, 2, 2, 35, 1, 1, false);
+        AbstractTower sniperTower = new SniperTower(45, 1, 4, 10, 30, 1, 1, false);
         Painter.towerList[0] = normalTower;
         Painter.towerList[1] = machineGunTower;
         Painter.towerList[2] = sniperTower;
@@ -30,6 +29,7 @@ public class GameController {
         if (Painter.selectLevel == 3) Painter.gameField = new GameField(GameStage.load("res/stage/stage3.txt"));
         Painter.map = Painter.gameField.getMap();
         Painter.towerMap = new AbstractTower[(int) Painter.gameField.getWidth()][(int) Painter.gameField.getHeight()];
+        Painter.scene = 1;
     }
 
     public static void stopGame() {
